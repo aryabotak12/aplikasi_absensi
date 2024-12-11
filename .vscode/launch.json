@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DashboardAdmin",
+            "request": "launch",
+            "mainClass": "admin.DashboardAdmin",
+            "projectName": "aplikasi_absensi_7d87121b"
+        },
+        {
+            "type": "java",
+            "name": "buat_akun_admin",
+            "request": "launch",
+            "mainClass": "admin.buat_akun_admin",
+            "projectName": "aplikasi_absensi_7d87121b"
+        },
+        {
+            "type": "java",
             "name": "DashboardMhs",
             "request": "launch",
             "mainClass": "mahasiswa.DashboardMhs",

@@ -33,8 +33,9 @@ public class RekapAbsenAdmin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,17 +117,23 @@ public class RekapAbsenAdmin extends javax.swing.JFrame {
         });
         jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 70, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cari", "Kelas", "Nama", "Tanggal" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, -1));
+        jLabel2.setText("Matkul");
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         jTextField1.setForeground(new java.awt.Color(204, 204, 204));
         jTextField1.setText("Search");
-        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 150, -1));
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField1FocusLost(evt);
+            }
+        });
+        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 150, -1));
+
+        jButton1.setText("Cari");
+        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 60, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,14 +160,26 @@ public class RekapAbsenAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         new admin.MenuUtamaAdmin().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        // TODO add your handling code here:
+        if (jTextField1.getText().equals("Search")) {
+            jTextField1.setText("");
+            jTextField1.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jTextField1FocusGained
+
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+        // TODO add your handling code here:
+        if (jTextField1.getText().isEmpty()) {
+            jTextField1.setText("Search");
+            jTextField1.setForeground(Color.GRAY);
+        }
+    }//GEN-LAST:event_jTextField1FocusLost
 
     /**
      * @param args the command line arguments
@@ -201,9 +220,10 @@ public class RekapAbsenAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
